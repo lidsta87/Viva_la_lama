@@ -1,4 +1,4 @@
-package com.example.teams;
+package com.example.Hangman;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

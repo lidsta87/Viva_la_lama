@@ -1,4 +1,4 @@
-package com.example.teams;
+package com.example.Hangman;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -79,12 +78,7 @@ public class SceneController {
 
     int correctCount;
     int previousCorrectCount;
-    int noCorrectGuesses;
-
-
-
-
-
+    int IncorrectGuess;
 
 
 
@@ -114,7 +108,7 @@ public class SceneController {
                 }
             }
             if (previousCorrectCount == correctCount) {
-                noCorrectGuesses++;
+                IncorrectGuess++;
             }
 
 
@@ -122,7 +116,7 @@ public class SceneController {
                 switchToScene3(event);
 
             }
-            if (noCorrectGuesses >= 6) {
+            if (IncorrectGuess >= 6) {
                 switchToScene4(event);
             }
 

@@ -3,6 +3,6 @@ module com.example.teams {
     requires javafx.fxml;
 
 
-    opens com.example.teams to javafx.fxml;
-    exports com.example.teams;
+    opens com.example.Hangman to javafx.fxml;
+    exports com.example.Hangman;
 }
