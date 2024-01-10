@@ -73,8 +73,8 @@ public class SceneController {
 
 
     char guess;
-    public  List <Character> hasGuest = new ArrayList<>();
-    private String word = "intovert";
+    public  List <Character> hasGuessed = new ArrayList<>();
+    private String word = "introvert";
 
     int correctCount;
     int previousCorrectCount;
@@ -88,8 +88,8 @@ public class SceneController {
             myTextfield.clear();
             //read in Textfield and clear it
 
-            hasGuest.add(guess);
-            myLabel.setText(hasGuest.toString());
+            hasGuessed.add(guess);
+            myLabel.setText(hasGuessed.toString());
             //add new guess to List and showcase it
 
             answerLabel.setText("");
@@ -99,7 +99,7 @@ public class SceneController {
 
 
             for (int k = 0; k < word.length(); k++) {
-                if (hasGuest.contains(word.charAt(k))) {
+                if (hasGuessed.contains(word.charAt(k))) {
                     answerLabel.setText(answerLabel.getText() + word.charAt(k) + " ");
                     correctCount++;
                 } else {
