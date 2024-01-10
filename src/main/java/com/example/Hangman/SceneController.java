@@ -12,9 +12,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class SceneController {
 
@@ -36,7 +42,6 @@ public class SceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
     public void switchToScene3(ActionEvent event) throws IOException {
@@ -74,7 +79,26 @@ public class SceneController {
 
     char guess;
     public List<Character> hasGuessed = new ArrayList<>();
-    private String word = "introvert";
+
+
+    Path filePath = Paths.get("src/main/resources", "Words");
+    List<String> words;
+
+    {
+        try {
+            words = Files.readAllLines(filePath, StandardCharsets.UTF_8);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    Random random = new Random();
+
+
+    private String word = words.get(random.nextInt(words.size()));
+
+
 
     int correctCount;
     int previousCorrectCount;
