@@ -62,7 +62,7 @@ public class SceneController {
         stage.show();
     }
 
-
+    //Quit Button
     public void quit(ActionEvent event) throws IOException {
         System.exit(0);
     }
@@ -77,29 +77,22 @@ public class SceneController {
     private ImageView hangmanImage;
 
 
-    char guess;
-    public List<Character> hasGuessed = new ArrayList<>();
-
-
+    //read a random word from the file Word
     Path filePath = Paths.get("src/main/resources", "Words");
     List<String> words;
-
     {
         try {
             words = Files.readAllLines(filePath, StandardCharsets.UTF_8);
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
     Random random = new Random();
+    private String word = words.get(random.nextInt(words.size())).toString();
 
 
-    private String word = words.get(random.nextInt(words.size()));
-
-
-
+    char guess;
+    public List<Character> hasGuessed = new ArrayList<>();
     int correctCount;
     int previousCorrectCount;
     int IncorrectGuess;
@@ -108,20 +101,20 @@ public class SceneController {
 
     public void submit(ActionEvent event) {
         try {
+            //read in Text field and clear it
             guess = myTextfield.getText().charAt(0);
             myTextfield.clear();
-            //read in Textfield and clear it
 
+            //add new guess to List and showcase it
             hasGuessed.add(guess);
             myLabel.setText(hasGuessed.toString());
-            //add new guess to List and showcase it
 
+            //refresh for a new Guess
             answerLabel.setText("");
             previousCorrectCount = correctCount;
             correctCount = 0;
-            //refresh for a new Guess
 
-
+            //Check and write what Characters have been guessed up till now
             for (int k = 0; k < word.length(); k++) {
                 if (hasGuessed.contains(word.charAt(k))) {
                     answerLabel.setText(answerLabel.getText() + word.charAt(k) + " ");
@@ -131,28 +124,37 @@ public class SceneController {
                 }
             }
 
+            //Check if any Character was guessed & change Hangman Image
             if (previousCorrectCount == correctCount) {
                 IncorrectGuess++;
-                String pathway = "Hangman" + IncorrectGuess + ".png";
-                image = new Image(pathway);
-
+                try {
+                    String pathway = "Hangman" + IncorrectGuess + ".png";
+                    image = new Image(pathway);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
 
+            //update Hangman Image
+            try {
+                hangmanImage.setImage(image);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
 
+            //Check for Win-condition
             if (correctCount == word.length()) {
                 switchToScene3(event);
-
             }
-            if (IncorrectGuess >= 6) {
+
+            //Check for Loose-Condition
+            if (IncorrectGuess == 6) {
                 switchToScene4(event);
             }
 
-            hangmanImage.setImage(image);
-
-
+            //catch IO Exception
         } catch (Exception e) {
             System.out.println(e);
-            //catch IO Exception
         }
 
     }

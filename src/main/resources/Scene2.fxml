@@ -15,14 +15,14 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="myLabel" layoutX="64.0" layoutY="265.0" prefHeight="35.0" prefWidth="118.0" text="Guesses">
+      <Label fx:id="myLabel" layoutX="64.0" layoutY="265.0" prefHeight="35.0" prefWidth="259.0" text="Guesses">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <TextField fx:id="myTextfield" layoutX="32.0" layoutY="128.0" prefHeight="35.0" prefWidth="181.0" />
       <Button fx:id="myButton" layoutX="213.0" layoutY="128.0" mnemonicParsing="false" onAction="#submit" prefHeight="35.0" prefWidth="52.0" text="Guess" />
-      <Label fx:id="answerLabel" layoutX="63.0" layoutY="193.0" prefHeight="35.0" prefWidth="118.0" text="Answer">
+      <Label fx:id="answerLabel" layoutX="63.0" layoutY="193.0" prefHeight="35.0" prefWidth="206.0" text="Answer">
          <font>
             <Font size="18.0" />
          </font>
