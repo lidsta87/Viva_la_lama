@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -72,31 +73,56 @@ public class SceneController {
     private TextField myTextfield;
 
 
-
     char guess;
     public  List <Character> hasGuest = new ArrayList<>();
+    private String word = "intovert";
+
+    int correctCount;
+    int previousCorrectCount;
+    int noCorrectGuesses;
+
+
+
+
+
+
 
 
     public void submit(ActionEvent event) {
         try {
             guess = myTextfield.getText().charAt(0);
             myTextfield.clear();
-            //read in Texfield and clear it
+            //read in Textfield and clear it
 
             hasGuest.add(guess);
             myLabel.setText(hasGuest.toString());
             //add new guess to List and showcase it
 
+            answerLabel.setText("");
+            previousCorrectCount = correctCount;
+            correctCount = 0;
+            //refresh for a new Guess
 
 
+            for (int k = 0; k < word.length(); k++) {
+                if (hasGuest.contains(word.charAt(k))) {
+                    answerLabel.setText(answerLabel.getText() + word.charAt(k) + " ");
+                    correctCount++;
+                } else {
+                    answerLabel.setText(answerLabel.getText() + "_ ");
+
+                }
+            }
+            if (previousCorrectCount == correctCount) {
+                noCorrectGuesses++;
+            }
 
 
-
-            if (guess == 'c') {
+            if (correctCount == word.length()) {
                 switchToScene3(event);
 
             }
-            if(guess == 'x'){
+            if (noCorrectGuesses >= 6) {
                 switchToScene4(event);
             }
 
@@ -107,11 +133,4 @@ public class SceneController {
         }
 
     }
-
-    private String word = "Hello";
-
-    public String getWord() {
-        return word;
-    }
-
 }
