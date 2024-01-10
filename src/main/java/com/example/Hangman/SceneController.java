@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,7 +28,6 @@ public class SceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
     public void switchToScene2(ActionEvent event) throws IOException {
@@ -35,7 +36,6 @@ public class SceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
 
     }
 
@@ -47,6 +47,7 @@ public class SceneController {
         stage.setScene(newScene);
         stage.show();
     }
+
     public void switchToScene4(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/Scene4.fxml"));
@@ -59,27 +60,26 @@ public class SceneController {
 
     public void quit(ActionEvent event) throws IOException {
         System.exit(0);
-
     }
 
     @FXML
     private Label myLabel;
-
     @FXML
     private Label answerLabel;
-
     @FXML
     private TextField myTextfield;
+    @FXML
+    private ImageView hangmanImage;
 
 
     char guess;
-    public  List <Character> hasGuessed = new ArrayList<>();
+    public List<Character> hasGuessed = new ArrayList<>();
     private String word = "introvert";
 
     int correctCount;
     int previousCorrectCount;
     int IncorrectGuess;
-
+    Image image;
 
 
     public void submit(ActionEvent event) {
@@ -104,11 +104,14 @@ public class SceneController {
                     correctCount++;
                 } else {
                     answerLabel.setText(answerLabel.getText() + "_ ");
-
                 }
             }
+
             if (previousCorrectCount == correctCount) {
                 IncorrectGuess++;
+                String pathway = "Hangman" + IncorrectGuess + ".png";
+                image = new Image(pathway);
+
             }
 
 
@@ -119,6 +122,8 @@ public class SceneController {
             if (IncorrectGuess >= 6) {
                 switchToScene4(event);
             }
+
+            hangmanImage.setImage(image);
 
 
         } catch (Exception e) {
