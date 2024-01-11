@@ -1,5 +1,6 @@
 package com.example.Hangman;
 
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +23,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.TreeMap;
 
 public class SceneController {
 
@@ -93,6 +96,8 @@ public class SceneController {
 
     char guess;
     public List<Character> hasGuessed = new ArrayList<>();
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+
     int correctCount;
     int previousCorrectCount;
     int IncorrectGuess;
@@ -127,20 +132,16 @@ public class SceneController {
             //Check if any Character was guessed & change Hangman Image
             if (previousCorrectCount == correctCount) {
                 IncorrectGuess++;
-                try {
-                    String pathway = "Hangman" + IncorrectGuess + ".png";
-                    image = new Image(pathway);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
+
+                String pathway = "Hangman" + IncorrectGuess + ".png";
+                image = new Image(pathway);
+
             }
 
             //update Hangman Image
-            try {
-                hangmanImage.setImage(image);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+            hangmanImage.setImage(image);
+            System.out.println("set pic");
+
 
             //Check for Win-condition
             if (correctCount == word.length()) {
@@ -149,7 +150,16 @@ public class SceneController {
 
             //Check for Loose-Condition
             if (IncorrectGuess == 6) {
-                switchToScene4(event);
+                hangmanImage.setImage(image);
+                pause.setOnFinished(e -> {
+                    try {
+                        switchToScene4(event);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                });
+                pause.play();
+
             }
 
             //catch IO Exception
