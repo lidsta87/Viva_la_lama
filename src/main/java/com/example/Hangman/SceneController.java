@@ -23,7 +23,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.TreeMap;
+import javax.sound.sampled.*;
 
 public class SceneController {
 
@@ -66,7 +66,7 @@ public class SceneController {
     }
 
     //Quit Button
-    public void quit(ActionEvent event) throws IOException {
+    public void quit(){
         System.exit(0);
     }
 
@@ -104,6 +104,7 @@ public class SceneController {
     Image image;
 
 
+
     public void submit(ActionEvent event) {
         try {
             //read in Text field and clear it
@@ -129,19 +130,21 @@ public class SceneController {
                 }
             }
 
-            //Check if any Character was guessed & change Hangman Image
+            //Check if any Character was guessed, display Hangman Image and Sound Effects
             if (previousCorrectCount == correctCount) {
                 IncorrectGuess++;
 
-                String pathway = "Hangman" + IncorrectGuess + ".png";
-                image = new Image(pathway);
+                String pathwayImage = "Hangman" + IncorrectGuess + ".png";
+                image = new Image(pathwayImage);
+                hangmanImage.setImage(image);
 
+
+                String pathwaySound = "src/main/resources/Sound/Hangman"+ IncorrectGuess+".wav";
+                AudioInputStream audiostream = AudioSystem.getAudioInputStream(new File(pathwaySound));
+                Clip clip = AudioSystem.getClip();
+                clip.open(audiostream);
+                clip.start();
             }
-
-            //update Hangman Image
-            hangmanImage.setImage(image);
-            System.out.println(word);
-
 
             //Check for Win-condition
             if (correctCount == word.length()) {
@@ -149,25 +152,20 @@ public class SceneController {
                     try {
                         switchToScene3(event);
                     } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
+                        throw new RuntimeException(ex);}
                 });
                 pause.play();
             }
 
-
             //Check for Loose-Condition
             if (IncorrectGuess == 6) {
-                hangmanImage.setImage(image);
                 pause.setOnFinished(e -> {
                     try {
                         switchToScene4(event);
                     } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
+                        throw new RuntimeException(ex);}
                 });
                 pause.play();
-
             }
 
             //catch IO Exception
