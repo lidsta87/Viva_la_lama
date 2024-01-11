@@ -66,7 +66,7 @@ public class SceneController {
     }
 
     //Quit Button
-    public void quit(){
+    public void quit() {
         System.exit(0);
     }
 
@@ -83,6 +83,7 @@ public class SceneController {
     //read a random word from the file Word
     Path filePath = Paths.get("src/main/resources", "Words");
     List<String> words;
+
     {
         try {
             words = Files.readAllLines(filePath, StandardCharsets.UTF_8);
@@ -90,6 +91,7 @@ public class SceneController {
             throw new RuntimeException(e);
         }
     }
+
     Random random = new Random();
     private String word = words.get(random.nextInt(words.size()));
 
@@ -102,7 +104,6 @@ public class SceneController {
     int previousCorrectCount;
     int IncorrectGuess;
     Image image;
-
 
 
     public void submit(ActionEvent event) {
@@ -138,8 +139,7 @@ public class SceneController {
                 image = new Image(pathwayImage);
                 hangmanImage.setImage(image);
 
-
-                String pathwaySound = "src/main/resources/Sound/Hangman"+ IncorrectGuess+".wav";
+                String pathwaySound = "src/main/resources/Sound/Hangman" + IncorrectGuess + ".wav";
                 AudioInputStream audiostream = AudioSystem.getAudioInputStream(new File(pathwaySound));
                 Clip clip = AudioSystem.getClip();
                 clip.open(audiostream);
@@ -152,18 +152,24 @@ public class SceneController {
                     try {
                         switchToScene3(event);
                     } catch (IOException ex) {
-                        throw new RuntimeException(ex);}
+                        throw new RuntimeException(ex);
+                    }
                 });
                 pause.play();
             }
 
             //Check for Loose-Condition
             if (IncorrectGuess == 6) {
-                pause.setOnFinished(e -> {
+                answerLabel.setText("");
+                for (int k = 0; k < word.length(); k++) {
+                    answerLabel.setText(answerLabel.getText() + word.charAt(k) + " ");
+                }
+                    pause.setOnFinished(e -> {
                     try {
                         switchToScene4(event);
                     } catch (IOException ex) {
-                        throw new RuntimeException(ex);}
+                        throw new RuntimeException(ex);
+                    }
                 });
                 pause.play();
             }
