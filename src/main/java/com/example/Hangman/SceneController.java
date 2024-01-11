@@ -91,7 +91,7 @@ public class SceneController {
         }
     }
     Random random = new Random();
-    private String word = words.get(random.nextInt(words.size())).toString();
+    private String word = words.get(random.nextInt(words.size()));
 
 
     char guess;
@@ -140,13 +140,21 @@ public class SceneController {
 
             //update Hangman Image
             hangmanImage.setImage(image);
-            System.out.println("set pic");
+            System.out.println(word);
 
 
             //Check for Win-condition
             if (correctCount == word.length()) {
-                switchToScene3(event);
+                pause.setOnFinished(e -> {
+                    try {
+                        switchToScene3(event);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                });
+                pause.play();
             }
+
 
             //Check for Loose-Condition
             if (IncorrectGuess == 6) {
