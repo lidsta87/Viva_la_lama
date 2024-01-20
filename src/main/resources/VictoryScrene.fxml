@@ -10,17 +10,17 @@
    <children>
       <ImageView fitHeight="800.0" fitWidth="1200.0">
          <image>
-            <Image url="@Backgruondimage.jpg" />
+            <Image url="@Images/Backgruondimage.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="350.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" scaleY="2.3">
          <image>
-            <Image url="@rope.png" />
+            <Image url="@Images/rope.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="580.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" scaleY="2.3">
          <image>
-            <Image url="@rope.png" />
+            <Image url="@Images/rope.png" />
          </image>
       </ImageView>
       <Button fx:id="retunToMenue" layoutX="425.0" layoutY="325.0" mnemonicParsing="false" onAction="#switchToScene1" prefHeight="150.0" prefWidth="350.0" text="Victory">

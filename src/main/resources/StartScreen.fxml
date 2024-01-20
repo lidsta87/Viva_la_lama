@@ -12,27 +12,27 @@
    <children>
       <ImageView fitHeight="800.0" fitWidth="1200.0">
          <image>
-            <Image url="@Backgruondimage.jpg" />
+            <Image url="@Images/Backgruondimage.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="304.0" fitWidth="160.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" scaleY="2.0">
          <image>
-            <Image url="@rope.png" />
+            <Image url="@Images/rope.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="105.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" scaleY="2.0">
          <image>
-            <Image url="@rope.png" />
+            <Image url="@Images/rope.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="105.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" scaleY="2.0">
          <image>
-            <Image url="@rope.png" />
+            <Image url="@Images/rope.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="304.0" fitWidth="160.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" scaleY="2.0">
          <image>
-            <Image url="@rope.png" />
+            <Image url="@Images/rope.png" />
          </image>
       </ImageView>
       <Button layoutX="98.0" layoutY="298.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="57.0" prefWidth="173.0" text="Start Game">
