@@ -32,7 +32,7 @@ public class SceneController {
 
 
     public void switchToScene1(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/Scene1.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/StartScreen.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -40,7 +40,7 @@ public class SceneController {
     }
 
     public void switchToScene2(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/Scene2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GameScene.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -49,7 +49,7 @@ public class SceneController {
 
     public void switchToScene3(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/Scene3.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/VictoryScrene.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene newScene = new Scene(root);
         stage.setScene(newScene);
@@ -58,7 +58,7 @@ public class SceneController {
 
     public void switchToScene4(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/Scene4.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GameOVerScrene.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene newScene = new Scene(root);
         stage.setScene(newScene);
@@ -80,7 +80,7 @@ public class SceneController {
     private ImageView hangmanImage;
 
 
-    //read a random word from the file Word
+    //read a random word from the file Words
     Path filePath = Paths.get("src/main/resources", "Words");
     List<String> words;
 
@@ -102,6 +102,7 @@ public class SceneController {
 
     int correctCount;
     int previousCorrectCount;
+
     int IncorrectGuess;
     Image image;
 
@@ -111,6 +112,10 @@ public class SceneController {
             //read in Text field and clear it
             guess = myTextfield.getText().charAt(0);
             myTextfield.clear();
+
+            if(hasGuessed.contains(guess)) {
+                return;
+            }
 
             //add new guess to List and showcase it
             hasGuessed.add(guess);
