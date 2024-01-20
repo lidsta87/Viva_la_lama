@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -29,7 +30,6 @@ public class SceneController {
 
     private Stage stage;
     private Scene scene;
-
 
     public void switchToScene1(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/StartScreen.fxml"));
@@ -107,7 +107,7 @@ public class SceneController {
     Image image;
 
 
-    public void submit(ActionEvent event) {
+    public void makeAGuess(ActionEvent event) {
         try {
             //read in Text field and clear it
             guess = myTextfield.getText().charAt(0);
@@ -138,7 +138,7 @@ public class SceneController {
                 }
             }
 
-            //Check if any Character was guessed, display Hangman Image and Sound Effects
+            //Check if any Character was guessed, if not change Hangman Image and play Sound Effects
             if (previousCorrectCount == correctCount) {
                 IncorrectGuess++;
 
