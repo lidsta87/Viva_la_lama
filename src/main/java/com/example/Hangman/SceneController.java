@@ -79,6 +79,10 @@ public class SceneController {
     @FXML
     private ImageView hangmanImage;
 
+    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+    Random random = new Random();
+
+
 
     //read a random word from the file Words
     Path filePath = Paths.get("src/main/resources", "Words");
@@ -92,13 +96,10 @@ public class SceneController {
         }
     }
 
-    Random random = new Random();
     private String word = words.get(random.nextInt(words.size()));
-
-
     char guess;
     public List<Character> hasGuessed = new ArrayList<>();
-    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+
 
     int correctCount;
     int previousCorrectCount;
@@ -142,8 +143,8 @@ public class SceneController {
             if (previousCorrectCount == correctCount) {
                 IncorrectGuess++;
 
-                String pathwayImage = "Hangman" + IncorrectGuess + ".png";
-                image = new Image(pathwayImage);
+                String pathwayImage = "/Images/Hangman"+ IncorrectGuess + ".png";
+                Image image = new Image(getClass().getResource(pathwayImage).toExternalForm());
                 hangmanImage.setImage(image);
 
                 String pathwaySound = "src/main/resources/Sound/Hangman" + IncorrectGuess + ".wav";
