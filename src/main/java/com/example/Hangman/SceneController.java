@@ -111,7 +111,9 @@ public class SceneController {
         try {
             //read in Text field and clear it
             guess = myTextfield.getText().charAt(0);
+            guess = Character.toUpperCase(guess);
             myTextfield.clear();
+
 
             if(hasGuessed.contains(guess)) {
                 return;
