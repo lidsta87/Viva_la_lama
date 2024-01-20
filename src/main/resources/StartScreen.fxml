@@ -15,12 +15,32 @@
             <Image url="@Backgruondimage.jpg" />
          </image>
       </ImageView>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" scaleY="2.0">
+         <image>
+            <Image url="@rope.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="105.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" scaleY="2.0">
+         <image>
+            <Image url="@rope.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="105.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" scaleY="2.0">
+         <image>
+            <Image url="@rope.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" scaleY="2.0">
+         <image>
+            <Image url="@rope.png" />
+         </image>
+      </ImageView>
       <Button layoutX="98.0" layoutY="298.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="57.0" prefWidth="173.0" text="Start Game">
          <font>
             <Font size="24.0" />
          </font>
          <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="DEFAULT" />
          </cursor></Button>
       <Button layoutX="98.0" layoutY="428.0" mnemonicParsing="false" onAction="#quit" prefHeight="57.0" prefWidth="173.0" text="Quit">
          <font>

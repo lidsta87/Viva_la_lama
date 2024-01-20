@@ -20,6 +20,10 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+        stage.setResizable(false);
+        stage.setTitle("Viva_La_Lama");
+        stage.setHeight(800);
+        stage.setWidth(1200);
         Parent root = FXMLLoader.load(getClass().getResource("/StartScreen.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);

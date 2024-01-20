@@ -18,5 +18,15 @@
                 <Font size="52.0" />
             </font>
         </Button>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="362.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" scaleY="2.3">
+         <image>
+            <Image url="@rope.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="576.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" scaleY="2.3">
+         <image>
+            <Image url="@rope.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
