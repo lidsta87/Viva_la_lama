@@ -10,13 +10,58 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Hangman.SceneController">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1200.0">
+      <ImageView fitHeight="800.0" fitWidth="1207.0" layoutY="-8.0">
          <image>
             <Image url="@Images/Backgruondimage.jpg" />
          </image>
       </ImageView>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/rope.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="52.0" layoutY="370.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/rope.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="192.0" layoutY="370.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/rope.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="52.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/rope.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="52.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/rope.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="192.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/rope.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="61.0" fitWidth="386.0" layoutX="94.0" layoutY="370.0" pickOnBounds="true">
+         <image>
+            <Image url="@Images/Wooden%20Board.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="89.0" fitWidth="303.0" layoutX="113.0" layoutY="137.0" pickOnBounds="true">
+         <image>
+            <Image url="@Images/Wooden%20Board.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="61.0" fitWidth="386.0" layoutX="94.0" layoutY="480.0" pickOnBounds="true">
+         <image>
+            <Image url="@Images/Wooden%20Board.png" />
+         </image>
+      </ImageView>
       <Button layoutX="1119.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToScene1" prefHeight="22.0" prefWidth="67.0" text="Exit" />
-      <Label layoutX="123.0" layoutY="157.0" text="Make a guess:">
+      <Label layoutX="162.0" layoutY="157.0" text="Make a guess:">
          <font>
             <Font size="33.0" />
          </font>
@@ -34,11 +79,11 @@
          <font>
             <Font size="22.0" />
          </font></Button>
-      <Label fx:id="answerLabel" layoutX="122.0" layoutY="383.0" prefHeight="35.0" prefWidth="241.0" text="Answer">
+      <Label fx:id="answerLabel" layoutX="123.0" layoutY="383.0" prefHeight="35.0" prefWidth="241.0" text="Answer">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <ImageView id="hangmanImage" fx:id="hangmanImage" fitHeight="426.0" fitWidth="333.0" layoutX="804.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="hangmanImage" fx:id="hangmanImage" fitHeight="566.0" fitWidth="413.0" layoutX="730.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

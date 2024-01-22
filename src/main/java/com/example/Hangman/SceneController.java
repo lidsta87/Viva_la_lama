@@ -11,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -79,9 +78,8 @@ public class SceneController {
     @FXML
     private ImageView hangmanImage;
 
-    PauseTransition pause = new PauseTransition(Duration.seconds(1));
+    PauseTransition pause = new PauseTransition(Duration.seconds(2));
     Random random = new Random();
-
 
 
     //read a random word from the file Words
@@ -97,15 +95,11 @@ public class SceneController {
     }
 
     private String word = words.get(random.nextInt(words.size()));
-    char guess;
-    public List<Character> hasGuessed = new ArrayList<>();
-
-
-    int correctCount;
-    int previousCorrectCount;
-
-    int IncorrectGuess;
-    Image image;
+    private char guess;
+    private List<Character> hasGuessed = new ArrayList<>();
+    private int correctCount;
+    private int previousCorrectCount;
+    private int IncorrectGuess;
 
 
     public void makeAGuess(ActionEvent event) {
@@ -114,7 +108,6 @@ public class SceneController {
             guess = myTextfield.getText().charAt(0);
             guess = Character.toUpperCase(guess);
             myTextfield.clear();
-
 
             if(hasGuessed.contains(guess)) {
                 return;
@@ -186,6 +179,5 @@ public class SceneController {
         } catch (Exception e) {
             System.out.println(e);
         }
-
     }
 }
