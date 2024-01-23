@@ -18,7 +18,12 @@
             <Image url="@Images/rope.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="580.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" scaleY="2.3">
+      <ImageView fitHeight="368.0" fitWidth="307.0" layoutX="456.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" rotate="26.6">
+         <image>
+            <Image url="@Images/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="304.0" fitWidth="160.0" layoutX="581.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true" scaleY="2.3">
          <image>
             <Image url="@Images/rope.png" />
          </image>
