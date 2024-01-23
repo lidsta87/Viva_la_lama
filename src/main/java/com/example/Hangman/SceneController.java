@@ -57,7 +57,7 @@ public class SceneController {
 
     public void switchToScene4(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/GameOVerScrene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GameOverScrene.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene newScene = new Scene(root);
         stage.setScene(newScene);
@@ -104,6 +104,8 @@ public class SceneController {
 
     public void makeAGuess(ActionEvent event) {
         try {
+            System.out.println(word);
+
             //read in Text field and clear it
             guess = myTextfield.getText().charAt(0);
             guess = Character.toUpperCase(guess);

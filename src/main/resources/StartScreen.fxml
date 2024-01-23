@@ -51,5 +51,10 @@
             <Font name="Arial Black" size="49.0" />
          </font>
       </Label>
+      <ImageView fitHeight="242.0" fitWidth="260.0" layoutX="441.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true" rotate="12.3">
+         <image>
+            <Image url="@Images/Logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
